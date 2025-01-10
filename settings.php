@@ -13,6 +13,11 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
         .header {
             background: #FF1B51;
             color: white;
@@ -156,28 +161,33 @@
     <div class="section-title">Privacy Settings</div>
 
     <div class="settings-list">
-        <div class="setting-item">
-            <svg class="setting-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            <span class="setting-text">Privacy Policy</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
-                <path d="M9 18l6-6-6-6" />
-            </svg>
-        </div>
+        <a href="privacypolicy.php" class="setting-link">
+            <div class="setting-item">
+                <svg class="setting-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <span class="setting-text">Privacy Policy</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </div>
+        </a>
 
-        <div class="setting-item">
-            <svg class="setting-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 16v-4" />
-                <path d="M12 8h.01" />
-            </svg>
-            <span class="setting-text">Terms & Service</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
-                <path d="M9 18l6-6-6-6" />
-            </svg>
-        </div>
+        <a href="term&service.php">
+            <div class="setting-item">
+                <svg class="setting-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                </svg>
+                <span class="setting-text">Terms & Service</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </div>
+        </a>
+
 
         <div class="setting-item">
             <svg class="setting-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

@@ -101,6 +101,18 @@
             fill: white;
             opacity: 0.8;
         }
+
+        /* Mobile View: 100% width for buttons */
+        @media (max-width: 768px) {
+            .center-container {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -184,9 +196,7 @@
                 <span class="premium">Premium</span>
             </button>
         </div>
-
     </div>
-
 
 
     <?php
