@@ -10,7 +10,7 @@
         <img src="nav\diy.png" alt="DIY" class="nav-icon">
        
     </a>
-    <a href="" class="nav-item">
+    <a href="brand.php" class="nav-item">
         <!-- Battery Image -->
         <img src="nav\battery.png" alt="Battery" class="nav-icon">
       

@@ -6,129 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .header {
-        background: #FF1B51;
-        color: white;
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .header {
+            background: #FF1B51;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0 0 14px 14px;
+        }
 
-    .back-button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 8px;
-    }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+        }
 
-    .header h1 {
-        font-size: 20px;
-        font-weight: 500;
-    }
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
 
-    .container {
-        padding: 16px;
-    }
+        .container {
+            padding: 16px;
+        }
 
-    .plan-card {
-        background: #8B0028;
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 24px;
-        color: white;
-        position: relative;
-    }
+        .plan-card {
+            background: linear-gradient(135deg, #8B0028, #eb0029);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            color: white;
+            position: relative;
+        }
 
-    .plan-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+        .plan-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-    .feature-list {
-        list-style: none;
-        margin-bottom: 24px;
-    }
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
 
-    .feature-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
-        font-size: 14px;
-    }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
 
-    .feature-dot {
-        width: 6px;
-        height: 6px;
-        background: white;
-        border-radius: 50%;
-    }
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+        }
 
-    .price-container {
-        background: white;
-        border-radius: 100px;
-        padding: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: black;
-    }
+        .price-container {
+            background: white;
+            border-radius: 100px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: black;
+        }
 
-    .duration {
-        font-weight: bold;
-    }
+        .duration {
+            font-weight: bold;
+        }
 
-    .price {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .current-price {
-        font-weight: bold;
-    }
+        .current-price {
+            font-weight: bold;
+        }
 
-    .original-price {
-        text-decoration: line-through;
-        color: #666;
-    }
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+        }
 
-    .purchased-tag {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: #FFD700;
-        color: black;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-    }
+        .purchased-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #FFD700;
+            color: black;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
+        <a href="index.php">
         <button class="back-button">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M15 18l-6-6 6-6" />
             </svg>
         </button>
+        </a>
         <h1>Subscribe</h1>
     </header>
 
     <div class="container">
+        <h2 class="plan-title">PREMIUM 3 YEAR PLAN</h2>
         <div class="plan-card">
-            <h2 class="plan-title">PREMIUM 3 YEAR PLAN</h2>
             <ul class="feature-list">
                 <li class="feature-item">
                     <div class="feature-dot"></div>
@@ -160,8 +163,8 @@
             </div>
         </div>
 
+        <h2 class="plan-title">PREMIUM YEAR PLAN</h2>
         <div class="plan-card">
-            <h2 class="plan-title">PREMIUM YEAR PLAN</h2>
             <ul class="feature-list">
                 <li class="feature-item">
                     <div class="feature-dot"></div>
@@ -193,8 +196,8 @@
             </div>
         </div>
 
+        <h2 class="plan-title">PREMIUM SHORT PLAN</h2>
         <div class="plan-card">
-            <h2 class="plan-title">PREMIUM YEAR PLAN</h2>
             <ul class="feature-list">
                 <li class="feature-item">
                     <div class="feature-dot"></div>

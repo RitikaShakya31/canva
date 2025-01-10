@@ -292,13 +292,13 @@ document.addEventListener("DOMContentLoaded", () => {
             { src: "assets/image/instagram.png", x: 650, y: 60 },
         ];
         const contactInfo = { phone: "+1234567890", website: "www.example.com", email: "email@example.com" };
-    
+
         socialIcons.forEach((icon) => {
             const img = new Image();
             img.src = icon.src;
             img.onload = () => ctx.drawImage(img, icon.x, icon.y, 30, 30);
         });
-    
+
         ctx.font = "20px Arial";
         ctx.fillStyle = "black";
         ctx.fillText(`Phone: ${contactInfo.phone}`, 10, canvas.height - 60);
@@ -354,23 +354,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvasShape = sessionStorage.getItem('canvasShape');
 
     if (imageURL && canvasShape) {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
         const img = new Image();
 
         img.onload = function () {
+            setCanvasDimensions();
+            drawImage();
+        };
+
+        img.src = imageURL;
+
+        function setCanvasDimensions() {
             if (canvasShape === 'square') {
                 canvas.width = 600;
                 canvas.height = 600;
             } else if (canvasShape === 'rectangle') {
                 canvas.width = 600;
                 canvas.height = 800;
-            } 
+            }
+        }
+
+        function drawImage() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        };
+        }
 
-        img.src = imageURL;
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            setCanvasDimensions();
+            drawImage();
+        });
     }
 });
+
 
 function applyFrame(frameType) {
     const imageURL = sessionStorage.getItem('selectedImageURL');
@@ -380,7 +397,7 @@ function applyFrame(frameType) {
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-        
+
         // Draw the image as the background with lower z-index
         ctx.globalCompositeOperation = "destination-over";
         ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
