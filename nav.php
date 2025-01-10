@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="sty.css">
 <nav class="bottom-nav">
-    <a href="" class="nav-item">
+    <a href="index.php" class="nav-item">
         <!-- Home Image -->
         <img src="nav/home.png" alt="Home" class="nav-icon">
         
@@ -14,7 +14,7 @@
         <img src="nav\battery.png" alt="Battery" class="nav-icon">
       
     </a>
-    <a href="" class="nav-item">
+    <a href="download.php" class="nav-item">
         <!-- Downloads Image -->
         <img src="nav\download.png" alt="Downloads" class="nav-icon">
         
