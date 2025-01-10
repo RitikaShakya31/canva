@@ -146,6 +146,10 @@
         <div id="section123-filter-dropdown">
             <select>
                 <option>Filter By Calendar</option>
+                <option>Vasant Panchmi</option>
+                <option>Lohri</option>
+                <option>Holi </option>
+                <option>Diwali</option>
             </select>
         </div>
 
