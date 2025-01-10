@@ -358,11 +358,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         img.onload = function () {
             if (canvasShape === 'square') {
-                canvas.width = 800;
-                canvas.height = 800;
-            } else if (canvasShape === 'rectangle') {
-                canvas.width = 450;
+                canvas.width = 600;
                 canvas.height = 600;
+            } else if (canvasShape === 'rectangle') {
+                canvas.width = 600;
+                canvas.height = 800;
             } 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
