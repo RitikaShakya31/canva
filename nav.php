@@ -19,7 +19,7 @@
         <img src="nav\download.png" alt="Downloads" class="nav-icon">
         
     </a>
-    <a href="" class="nav-item">
+    <a href="profile.php" class="nav-item">
         <!-- Profile Image -->
         <img src="nav\profile.png" alt="Profile" class="nav-icon">
         

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            border-radius: 0 0 14px 14px;
         }
 
         .back-button {
@@ -45,7 +47,7 @@
             border-radius: 16px;
             overflow: hidden;
             margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .portfolio-header {
@@ -111,13 +113,16 @@
         }
     </style>
 </head>
+
 <body>
     <header class="header">
-        <button class="back-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-        </button>
+        <a href="profile.php">
+            <button class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </a>
         <h1>Services</h1>
     </header>
 
@@ -130,7 +135,8 @@
             <div class="portfolio-content">
                 <div class="price">&lt;60K/Month*</div>
                 <p class="description">
-                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly crafted to manage and enhance your online portfolio.
+                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly
+                    crafted to manage and enhance your online portfolio.
                 </p>
                 <ul class="feature-list">
                     <li class="feature-item">
@@ -174,7 +180,8 @@
             <div class="portfolio-content">
                 <div class="price">&lt;35K/Month*</div>
                 <p class="description">
-                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly crafted to manage and enhance your online portfolio.
+                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly
+                    crafted to manage and enhance your online portfolio.
                 </p>
                 <ul class="feature-list">
                     <li class="feature-item">
@@ -218,7 +225,8 @@
             <div class="portfolio-content">
                 <div class="price">&lt;20K/Month*</div>
                 <p class="description">
-                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly crafted to manage and enhance your online portfolio.
+                    Transform your business's digital landscape with Jugadwale.com's comprehensive packages, expertly
+                    crafted to manage and enhance your online portfolio.
                 </p>
                 <ul class="feature-list">
                     <li class="feature-item">
@@ -259,4 +267,5 @@
     // Add any PHP functionality here if needed
     ?>
 </body>
+
 </html>

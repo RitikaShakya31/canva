@@ -6,118 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .header {
-        background: #FF1B51;
-        color: white;
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .header {
+            background: #FF1B51;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0 0 14px 14px;
+        }
 
-    .back-button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 8px;
-    }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+        }
 
-    .header h1 {
-        font-size: 20px;
-        font-weight: 500;
-    }
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
 
-    .section-title {
-        padding: 16px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        border-bottom: 2px solid #FF1B51;
-        width: fit-content;
-    }
+        .section-title {
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #FF1B51;
+            width: fit-content;
+        }
 
-    .settings-list {
-        padding: 16px;
-    }
+        .settings-list {
+            padding: 16px;
+        }
 
-    .setting-item {
-        display: flex;
-        align-items: center;
-        padding: 16px 0;
-        border-bottom: 1px solid #eee;
-    }
+        .setting-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
 
-    .setting-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 12px;
-        opacity: 0.7;
-    }
+        .setting-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            opacity: 0.7;
+        }
 
-    .setting-text {
-        flex: 1;
-        font-size: 16px;
-        color: #333;
-    }
+        .setting-text {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+        }
 
-    .toggle-switch {
-        width: 44px;
-        height: 24px;
-        background: #ccc;
-        border-radius: 12px;
-        position: relative;
-        cursor: pointer;
-    }
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
 
-    .toggle-switch.active {
-        background: #FF1B51;
-    }
+        .toggle-switch.active {
+            background: #FF1B51;
+        }
 
-    .toggle-switch::after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: white;
-        border-radius: 50%;
-        top: 2px;
-        left: 2px;
-        transition: transform 0.3s;
-    }
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
 
-    .toggle-switch.active::after {
-        transform: translateX(20px);
-    }
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
 
-    .cache-clear {
-        color: #FF1B51;
-        padding: 4px 8px;
-        border: 1px solid #FF1B51;
-        border-radius: 4px;
-        font-size: 14px;
-    }
+        .cache-clear {
+            color: #FF1B51;
+            padding: 4px 8px;
+            border: 1px solid #FF1B51;
+            border-radius: 4px;
+            font-size: 14px;
+        }
 
-    .version {
-        color: #666;
-        font-size: 14px;
-    }
+        .version {
+            color: #666;
+            font-size: 14px;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <button class="back-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
+        <a href="profile.php">
+            <button class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </a>
         <h1>Settings</h1>
     </header>
 
@@ -187,12 +190,12 @@
     </div>
 
     <script>
-    // Toggle switch functionality
-    document.querySelectorAll('.toggle-switch').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
+        // Toggle switch functionality
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('active');
+            });
         });
-    });
     </script>
 </body>
 

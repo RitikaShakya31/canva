@@ -6,155 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    body {
-        background-color: #f5f5f5;
-    }
+        body {
+            background-color: #f5f5f5;
+        }
 
-    .container {
-        max-width: 480px;
-        margin: 0 auto;
-        padding: 16px;
-    }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 16px;
+        }
 
-    .header {
-        padding: 16px 0;
-    }
+        .header {
+            padding: 16px 0;
+        }
 
-    .header h1 {
-        font-size: 24px;
-        font-weight: 600;
-    }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
 
-    .profile-card {
-        background: white;
-        border-radius: 16px;
-        padding: 20px;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
+        .profile-card {
+            background: #f7f5f5;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-    .avatar {
-        width: 60px;
-        height: 60px;
-        background: #FF1B51;
-        border-radius: 50%;
-        margin-right: 16px;
-    }
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background: #FF1B51;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
 
-    .profile-info {
-        flex: 1;
-    }
+        .profile-info {
+            flex: 1;
+        }
 
-    .profile-number {
-        font-size: 18px;
-        font-weight: 500;
-    }
+        .profile-number {
+            font-size: 18px;
+            font-weight: 500;
+        }
 
-    .premium-badge {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        background: #FFB800;
-        color: black;
-        padding: 4px 12px;
-        border-radius: 16px;
-        font-size: 14px;
-    }
+        .premium-badge {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: linear-gradient(135deg, #fd5d07, #ebca00);
+            color: black;
+            padding: 4px 12px;
+            border-radius: 0 10px 0 10px;
+            font-size: 14px;
+        }
 
-    .edit-button {
-        background: #f5f5f5;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 8px;
-        margin-top: 8px;
-    }
+        .edit-button {
+            background: #e3dddd;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
 
-    .menu-list {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-    }
+        .menu-list {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+        }
 
-    .menu-item {
-        display: flex;
-        align-items: center;
-        padding: 16px 20px;
-        border-bottom: 1px solid #f5f5f5;
-    }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f5f5f5;
+        }
 
-    .menu-item:last-child {
-        border-bottom: none;
-    }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
 
-    .menu-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 12px;
-        opacity: 0.7;
-    }
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            opacity: 0.7;
+        }
 
-    .menu-text {
-        flex: 1;
-        font-size: 16px;
-    }
+        .menu-text {
+            flex: 1;
+            font-size: 16px;
+        }
 
-    .chevron {
-        opacity: 0.3;
-    }
+        .chevron {
+            opacity: 0.3;
+        }
 
-    .logout-button {
-        background: #FF1B51;
-        color: white;
-        border: none;
-        width: 100%;
-        padding: 16px;
-        border-radius: 100px;
-        font-size: 16px;
-        margin: 24px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
+        .logout-button {
+            background: #FF1B51;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 100px;
+            font-size: 16px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
 
-    .delete-account {
-        text-align: center;
-        color: #666;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 24px;
-    }
+        .delete-account {
+            text-align: center;
+            color: #666;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 24px;
+        }
 
-    .bottom-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        display: flex;
-        justify-content: space-around;
-        padding: 16px;
-        border-top: 1px solid #eee;
-    }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 16px;
+            border-top: 1px solid #eee;
+        }
 
-    .nav-item {
-        text-align: center;
-        opacity: 0.5;
-    }
+        .nav-item {
+            text-align: center;
+            opacity: 0.5;
+        }
 
-    .nav-item.active {
-        opacity: 1;
-        color: #FF1B51;
-    }
+        .nav-item.active {
+            opacity: 1;
+            color: #FF1B51;
+        }
     </style>
 </head>
 
@@ -163,8 +164,8 @@
         <header class="header">
             <h1>Personal Profile</h1>
         </header>
-
-        <div class="profile-card">
+        <hr>
+        <div  class="profile-card">
             <div class="avatar"></div>
             <div class="profile-info">
                 <div class="profile-number">9065001331</div>
@@ -269,22 +270,22 @@
 
 </body>
 <script>
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const target = item.getAttribute('data-target');
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const target = item.getAttribute('data-target');
+            if (target) {
+                window.location.href = target; // Redirect to the specified PHP file
+            }
+        });
+    });
+
+    // Add event listener to the Edit button
+    document.querySelector('.edit-button').addEventListener('click', function () {
+        const target = this.getAttribute('data-target'); // Get the target PHP file
         if (target) {
-            window.location.href = target; // Redirect to the specified PHP file
+            window.location.href = target; // Navigate to the target file
         }
     });
-});
-
-// Add event listener to the Edit button
-document.querySelector('.edit-button').addEventListener('click', function() {
-    const target = this.getAttribute('data-target'); // Get the target PHP file
-    if (target) {
-        window.location.href = target; // Navigate to the target file
-    }
-});
 </script>
 
 </html>
