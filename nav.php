@@ -5,10 +5,9 @@
         <img src="nav/home.png" alt="Home" class="nav-icon">
         
     </a>
-    <a href="" class="nav-item">
+    <a href="DIY.php" class="nav-item">
         <!-- DIY Image -->
-        <img src="nav\diy.png" alt="DIY" class="nav-icon">
-       
+        <img src="nav\diy.png" alt="DIY" class="nav-icon">       
     </a>
     <a href="" class="nav-item">
         <!-- Battery Image -->

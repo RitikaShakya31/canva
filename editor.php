@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets\editor\editor.css">
     <title>Image Editor</title>
 </head>
-
 <body>
     <div class="app">
         <!-- Header -->
@@ -124,10 +123,15 @@
                     <a href="#" class="see-all">See all</a>
                 </div>
                 <div class="sticker-grid">
+                    <img src="assets/image/facebook.png" alt="">
+                    <img src="assets/image/instagram.png" alt="">
+                    <img src="assets/image/youtube.png" alt="">
+                    <img src="assets/image/mail.png" alt="">
+                    <img src="assets/image/location.png" alt="">
+                    <!-- <div class="sticker-item"></div>
                     <div class="sticker-item"></div>
                     <div class="sticker-item"></div>
-                    <div class="sticker-item"></div>
-                    <div class="sticker-item"></div>
+                    <div class="sticker-item"></div> -->
                 </div>
             </div>
             <div class="sticker-category">

@@ -260,7 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (img.src) {
             applyOpacityAndFilter();
         }
-
         // Draw logo name at the top-left
         drawLogo();
 
