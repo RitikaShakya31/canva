@@ -471,7 +471,12 @@
         include 'nav.php';
         ?>
 
-
+<script>
+            function togglePopup() {
+                const popup = document.getElementById('brand-popup');
+                popup.classList.toggle('active'); // Toggles the active class
+            }
+        </script>
 
       
 </body>
