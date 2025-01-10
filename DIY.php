@@ -88,11 +88,14 @@
 
         .premium {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            font-size: 12px;
-            color: white;
+    top: 10%;
+    transform: translateY(-50%);
+    right: 1px;
+    font-size: 12px;
+    color: #030202;
+    background: #ffb671;
+    padding: 2px 10px;
+    border-radius: 13px;
         }
 
         .icon {
@@ -100,6 +103,18 @@
             height: 32px;
             fill: white;
             opacity: 0.8;
+        }
+
+        /* Mobile View: 100% width for buttons */
+        @media (max-width: 768px) {
+            .center-container {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -184,9 +199,7 @@
                 <span class="premium">Premium</span>
             </button>
         </div>
-
     </div>
-
 
 
     <?php

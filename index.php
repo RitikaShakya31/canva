@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festival App</title>
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="sty.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,13 +16,16 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="brand">
-                <img src="assets\image\logo.png" alt="Brand Logo" class="brand-logo">
+            <div class="brand" onclick="togglePopup()">
+                <img src="assets/image/logo.png" alt="Brand Logo" class="brand-logo">
                 <div class="brand-info">
                     <span class="brand-name">Your Brand</span>
                     <span class="brand-handle">wjjwj ▼</span>
                 </div>
             </div>
+
+          
+
             <div class="header-actions" data-target="subscription.php">
                 <a style="color:#e91e63;" class="" href=""><i style="font-size:20px;" class="fa fa-user-circle"
                         aria-hidden="true"></i></a>
@@ -150,9 +154,12 @@
             <div class="header flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
-                <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
-                        aria-hidden="true"></i></a>
+                <a href="#" class="text-gray-500 hover:underline flex items-center">
+                    See all
+                    <i class="fa fa-chevron-right ml-2" aria-hidden="true"></i>
+                </a>
             </div>
+
             <div
                 class="festival-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 <a href=""
@@ -160,7 +167,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-10</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>W. Hindi Day</p>
+                        <p class="upcoming-festival">W. Hindi Day</p>
                     </div>
                 </a>
                 <a href=""
@@ -168,7 +175,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-11</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>Lal Bahadur Shastri ...</p>
+                        <p class="upcoming-festival">Lal Bahadur Shastri</p>
                     </div>
                 </a>
                 <a href=""
@@ -176,7 +183,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-12</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>Nat. Youth Day</p>
+                        <p class="upcoming-festival">Nat. Youth Day</p>
                     </div>
                 </a>
                 <a href=""
@@ -184,7 +191,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-12</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>Nat. Youth Day</p>
+                        <p class="upcoming-festival">Nat. Youth Day</p>
                     </div>
                 </a>
                 <a href=""
@@ -192,7 +199,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-12</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>Nat. Youth Day</p>
+                        <p class="upcoming-festival">Nat. Youth Day</p>
                     </div>
                 </a>
                 <a href=""
@@ -200,7 +207,7 @@
                     style="background-image: url('assets/category-images/1728540333.jpg');">
                     <div class="date text-sm bg-gray-900 bg-opacity-75 px-2 py-1 rounded">2025-01-12</div>
                     <div class="content-overlay bg-gray-900 bg-opacity-75 p-2 rounded mt-2">
-                        <p>Nat. Youth Day</p>
+                        <p class="upcoming-festival">Nat. Youth Day</p>
                     </div>
                 </a>
                 <a href=""
@@ -220,38 +227,32 @@
         <!-- Festival Images Sections -->
         <div id="section123-vasant-panchami">
             <div class="header flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
-                <div class="flex-grow border-t border-gray-300 mx-4"></div>
+                <h2 class="text-2xl font-bold other-h2">Vasant Panchmi</h2>
+                <!-- <div class="flex-grow border-t border-gray-300 mx-4"></div> -->
                 <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
                         aria-hidden="true"></i></a>
             </div>
             <div class="card-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
-                <!-- Square Image -->
-                <a href="editor.php" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden"
-                    onclick="storeImageURL(event, 'assets/category-images/1728540333.jpg', 'square')">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
-                </a>
-
-                <!-- Rectangular Image -->
-                <a href="editor.php"  style="width: 90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden"
-                    onclick="storeImageURL(event, 'assets/category-images/1728540333.jpg', 'rectangle')">
-                    <img src="assets/category-images/1728540333.jpg" alt="Rectangular Image"
-                       >
-                </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/4.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
+                </a>
+                <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
+                    <img src="assets/img/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
+                </a>
+                <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
+                    <img src="assets/img/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
             </div>
 
@@ -259,7 +260,7 @@
 
         <div id="section123-vasant-panchami">
             <div class="header flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
+                <h2 class="text-2xl font-bold other-h2">Republic Day</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
                 <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
                         aria-hidden="true"></i></a>
@@ -267,61 +268,61 @@
             <div
                 class="card-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 p-4">
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/4.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
             </div>
 
         </div>
         <div id="section123-vasant-panchami">
             <div class="header flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
+                <h2 class="text-2xl font-bold other-h2">Makra Sankranti</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
                 <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
                         aria-hidden="true"></i></a>
             </div>
             <div class="card-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/4.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/makar sankrantri/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
             </div>
 
         </div>
         <div id="section123-vasant-panchami">
             <div class="header flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
+                <h2 class="text-2xl font-bold other-2">Lohri</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
                 <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
                         aria-hidden="true"></i></a>
@@ -329,22 +330,22 @@
             <div
                 class="card-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 p-4">
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/3.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/4.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
                 <a href="" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/category-images/1728540333.jpg" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/republic/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
             </div>
         </div>
@@ -353,7 +354,7 @@
         <!-- Categories Section -->
         <section class="section">
             <div class="header flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
+                <h2 class="text-2xl font-bold other-h2">Category</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
                 <a href="" class="text-black-500 hover:underline">See all <i class="fa fa-chevron-right"
                         aria-hidden="true"></i></a>
@@ -467,144 +468,7 @@
 
 
 
-        <script>
-
-
-
-            function storeImageURL(event, imageURL, shape) {
-                event.preventDefault(); // Prevent default anchor navigation
-                // Save the image URL and shape to sessionStorage
-                sessionStorage.setItem('selectedImageURL', imageURL);
-                sessionStorage.setItem('canvasShape', shape);
-                // Redirect to editor.php
-                window.location.href = 'editor.php';
-            }
-
-
-            // Smooth scrolling for horizontal scroll containers
-            document.addEventListener('DOMContentLoaded', function () {
-                const scrollContainers = document.querySelectorAll('.scroll-container');
-
-                scrollContainers.forEach(container => {
-                    let isDown = false;
-                    let startX;
-                    let scrollLeft;
-
-                    container.addEventListener('mousedown', (e) => {
-                        isDown = true;
-                        container.style.cursor = 'grabbing';
-                        startX = e.pageX - container.offsetLeft;
-                        scrollLeft = container.scrollLeft;
-                    });
-
-                    container.addEventListener('mouseleave', () => {
-                        isDown = false;
-                        container.style.cursor = 'grab';
-                    });
-
-                    container.addEventListener('mouseup', () => {
-                        isDown = false;
-                        container.style.cursor = 'grab';
-                    });
-
-                    container.addEventListener('mousemove', (e) => {
-                        if (!isDown) return;
-                        e.preventDefault();
-                        const x = e.pageX - container.offsetLeft;
-                        const walk = (x - startX) * 2;
-                        container.scrollLeft = scrollLeft - walk;
-                    });
-
-                    // Touch events for mobile
-                    container.addEventListener('touchstart', (e) => {
-                        startX = e.touches[0].pageX - container.offsetLeft;
-                        scrollLeft = container.scrollLeft;
-                    });
-
-                    container.addEventListener('touchmove', (e) => {
-                        if (e.touches.length !== 1) return;
-                        const x = e.touches[0].pageX - container.offsetLeft;
-                        const walk = (x - startX) * 2;
-                        container.scrollLeft = scrollLeft - walk;
-                    });
-                });
-
-                // Calendar filter functionality
-                const calendarDays = document.querySelectorAll('.calendar-day');
-                calendarDays.forEach(day => {
-                    day.addEventListener('click', () => {
-                        calendarDays.forEach(d => d.style.backgroundColor = 'white');
-                        day.style.backgroundColor = '#f8f9fa';
-                    });
-                });
-            });
-
-
-
-
-
-
-
-            const sliderContainer = document.querySelector('.slider-container');
-            const slides = document.querySelectorAll('.slide');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-
-            let currentIndex = 0;
-            let startX = 0;
-            let isDragging = false;
-
-            // Function to update the slider position
-            function updateSlider() {
-                const offset = -currentIndex * 100;
-                sliderContainer.style.transform = `translateX(${offset}%)`;
-            }
-
-            // Event listeners for navigation buttons
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlider();
-            });
-
-            // Touch swipe functionality
-            sliderContainer.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-            });
-
-            sliderContainer.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                const diff = e.touches[0].clientX - startX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        // Swipe right
-                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    } else {
-                        // Swipe left
-                        currentIndex = (currentIndex + 1) % slides.length;
-                    }
-                    updateSlider();
-                    isDragging = false; // Prevent further movement until a new touchstart
-                }
-            });
-
-            sliderContainer.addEventListener('touchend', () => {
-                isDragging = false;
-            });
-
-            // Add click event listener to the header-actions div
-            document.querySelector('.header-actions').addEventListener('click', function () {
-                const target = this.getAttribute('data-target'); // Get the target PHP file
-                if (target) {
-                    window.location.href = target; // Redirect to the specified file
-                }
-            });
-        </script>
+      
 </body>
 
 </html>
