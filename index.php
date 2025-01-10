@@ -24,7 +24,25 @@
                 </div>
             </div>
 
-
+            <div id="brand-popup" class="popup">
+                <div class="popup-content">
+                    <div class="popup-header">
+                        <h3>Brand</h3>
+                    </div>
+                    <div class="popup-body">
+                        <div class="brand-card">
+                            <img src="assets/image/logo.png" alt="Brand Logo" class="brand-logo">
+                            <div>
+                                <span class="brand-name">wjjwj</span>
+                                <span class="brand-category">Accounting</span>
+                            </div>
+                            <button class="edit-btn">Edit Brand Details</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                    <button class="add-brand-btn">+ Add More Brand</button>
+                </div>
+            </div>
 
             <div class="header-actions" data-target="subscription.php">
                 <a style="color:#e91e63;" class="" href=""><i style="font-size:20px;" class="fa fa-user-circle"
@@ -451,7 +469,7 @@
 
 
 
-
+      
 </body>
 
 </html>
