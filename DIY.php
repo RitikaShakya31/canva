@@ -88,11 +88,14 @@
 
         .premium {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            font-size: 12px;
-            color: white;
+    top: 10%;
+    transform: translateY(-50%);
+    right: 1px;
+    font-size: 12px;
+    color: #030202;
+    background: #ffb671;
+    padding: 2px 10px;
+    border-radius: 13px;
         }
 
         .icon {
