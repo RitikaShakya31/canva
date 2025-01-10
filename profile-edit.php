@@ -6,114 +6,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Personal Profile</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .header {
-        background: #FF1B51;
-        color: white;
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .header {
+            background: #FF1B51;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0 0 14px 14px;
+        }
 
-    .back-button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 8px;
-    }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+        }
 
-    .header h1 {
-        font-size: 20px;
-        font-weight: 500;
-    }
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
 
-    .profile-section {
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .profile-section {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .avatar-container {
-        position: relative;
-        margin-bottom: 32px;
-    }
+        .avatar-container {
+            position: relative;
+            margin-bottom: 32px;
+        }
 
-    .avatar {
-        width: 100px;
-        height: 100px;
-        background: #FF1B51;
-        border-radius: 50%;
-        border: 4px solid #FFE4E8;
-    }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: #FF1B51;
+            border-radius: 50%;
+            border: 4px solid #FFE4E8;
+        }
 
-    .camera-button {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: #FF1B51;
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-    }
+        .camera-button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: #FF1B51;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
 
-    .form-container {
-        width: 100%;
-        padding: 0 16px;
-    }
+        .form-container {
+            width: 100%;
+            padding: 0 16px;
+        }
 
-    .form-group {
-        margin-bottom: 24px;
-    }
+        .form-group {
+            margin-bottom: 24px;
+        }
 
-    .form-label {
-        display: block;
-        margin-bottom: 8px;
-        color: #333;
-        font-size: 16px;
-    }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
 
-    .form-input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 16px;
-        color: #666;
-    }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #666;
+        }
 
-    .save-button {
-        background: #FF1B51;
-        color: white;
-        border: none;
-        width: 100%;
-        padding: 16px;
-        border-radius: 100px;
-        font-size: 16px;
-        margin-top: 32px;
-    }
+        .save-button {
+            background: #FF1B51;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 100px;
+            font-size: 16px;
+            margin-top: 32px;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <button class="back-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
+        <a href="profile.php">
+            <button class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </a>
         <h1>Edit Personal Profile</h1>
     </header>
 
