@@ -6,55 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refund Policy</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .header {
-        background: #FF1B51;
-        color: white;
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .header {
+            background: #FF1B51;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0 0 14px 14px;
+        }
 
-    .back-button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 8px;
-        cursor: pointer;
-    }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+            cursor: pointer;
+        }
 
-    .header h1 {
-        font-size: 20px;
-        font-weight: 500;
-    }
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
 
-    .content {
-        padding: 20px;
-        line-height: 1.6;
-    }
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    .policy-text {
-        color: #333;
-        font-size: 15px;
-        margin-bottom: 16px;
-    }
+        .policy-text {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <button class="back-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
+        <a href="profile.php">
+            <button class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </a>
         <h1>Refund Policy</h1>
     </header>
 
