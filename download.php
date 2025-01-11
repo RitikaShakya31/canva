@@ -19,7 +19,7 @@
         }
         .download-btn {
             background-color: #f3f3f3ad;
-            color: hsl(0, 7.10%, 80.60%);
+            color: black;
             border: none;
             border-radius: 8px;
             padding: 12px;

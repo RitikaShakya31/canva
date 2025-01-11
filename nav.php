@@ -9,7 +9,7 @@
         <!-- DIY Image -->
         <img src="nav\diy.png" alt="DIY" class="nav-icon">       
     </a>
-    <a href="brand.php" class="nav-item">
+    <a href="category-details.php" class="nav-item">
         <!-- Battery Image -->
         <img src="nav\battery.png" alt="Battery" class="nav-icon">
       

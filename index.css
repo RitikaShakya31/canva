@@ -137,10 +137,155 @@
 .add-brand-btn:hover {
     background-color: #e04a65;
 }
-.delete-btn-1{
+
+.delete-btn-1 {
     margin-top: -30px;
     margin-right: -11px;
 }
-.grid-cols-2{
+
+.grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 991px) {
+    .scroll-container {
+        gap: 2px !important;
+    }
+
+    .next-btn {
+        display: none;
+    }
+
+    .prev-btn {
+        display: none;
+    }
+
+    .trending-icon {
+        width: 80px !important;
+        height: 80px !important;
+        border: none;
+    }
+
+    #section123-upcoming-festivals .header h2 {
+        font-size: 19px !important;
+        font-weight: 500 !important;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    #section123-upcoming-festivals .festival-card {
+        min-width: 203px !important;
+    }
+
+    #section123-vasant-panchami .card {
+        min-width: 80px !important;
+        height: 100px !important;
+    }
+
+    #section123-vasant-panchami .card-container {
+        display: flex !important;
+        gap: 16px !important;
+    }
+
+    .container {
+        padding: 0 12px 70px !important;
+    }
+
+    #section123-vasant-panchami .card-container {
+        gap: 25px !important;
+    }
+
+    .hero-slider {
+        height: 155px !important;
+    }
+}
+
+.container {
+    padding: 0 12px 70px !important;
+}
+
+#section123-vasant-panchami .card-container {
+    display: flex;
+    /* gap: 65px !important; */
+}
+
+#section123-filter-dropdown select {
+    padding: 17px 15px !important;
+}
+
+#section123-filter-dropdown select:hover {
+    background-color: #fff !important;
+}
+
+#section123-upcoming-festivals .header h2 {
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+
+#section123-upcoming-festivals .festival-card .date {
+    position: absolute;
+    top: 0px !important;
+    right: 0px !important;
+    left: unset !important;
+    background-color: rgb(217 36 82) !important;
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    z-index: 2;
+    color: #fff !important;
+}
+
+#section123-upcoming-festivals .festival-card {
+    position: relative;
+    min-width: 203px !important;
+    height: 62px !important;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.upcoming-festival {
+    font-size: 14px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+#section123-vasant-panchami .card-container {
+    padding-left: 0px;
+}
+
+#section123-vasant-panchami .card {
+    min-width: 150px;
+    height: 200px;
+}
+
+.other-h2 {
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+
+.bottom-nav {
+    background: #eee !important;
+}
+
+.nav-icon {
+    width: 19px !important;
+    height: 19px !important;
+}
+
+.hero-image {
+    background-size: cover;
+    width: 100%;
+    height: 510px !important;
+    background-position: center;
+    object-fit: cover;
+}
+
+.trending-icon::before {
+    border-color: #92013a white !important;
 }

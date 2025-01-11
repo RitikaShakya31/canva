@@ -94,7 +94,7 @@
 
 <body>
     <header class="header">
-        <a href="index.php">
+        <a href="category-details.php">
             <button class="back-button">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M15 18l-6-6 6-6" />

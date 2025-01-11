@@ -6,100 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest Festivals</title>
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .header {
-        background: #FF1B51;
-        color: white;
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+        .header {
+            background: #FF1B51;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .back-button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 8px;
-    }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+        }
 
-    .header h1 {
-        font-size: 20px;
-        font-weight: 500;
-    }
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
 
-    .filter-container {
-        padding: 16px;
-    }
+        .filter-container {
+            padding: 16px;
+        }
 
-    .filter-select {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        font-size: 16px;
-        color: #666;
-        background: white;
-    }
+        .filter-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #666;
+            background: white;
+        }
 
-    .festivals-grid {
-        padding: 16px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
+        .festivals-grid {
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
 
-    .festival-card {
-        position: relative;
-        aspect-ratio: 16/9;
-        background: #FF1B51;
-        border-radius: 12px;
-        overflow: hidden;
-    }
+        .festival-card {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #FF1B51;
+            border-radius: 12px;
+            overflow: hidden;
+        }
 
-    .festival-date {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: white;
-        color: #000;
+        .festival-date {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: white;
+            color: #000;
 
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-    }
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
 
-    .festival-name {
-        position: absolute;
-        bottom: 8px;
-        left: 8px;
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-    }
+        .festival-name {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
-    .festival-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.2;
-    }
+        .festival-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <button class="back-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
+        <a href="index.php">
+            <button class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </a>
         <h1>Latest Festivals</h1>
     </header>
 

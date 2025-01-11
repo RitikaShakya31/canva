@@ -36,20 +36,20 @@
                                 <span class="brand-name">wjjwj</span>
                                 <span class="brand-category">Accounting</span>
                             </div>
-                            <button class="edit-btn">Edit Brand Details</button>
+                            <a href="brand-edit.php"> <button class="edit-btn">Edit Brand Details</button></a>
                             <button class="delete-btn">Delete</button>
                         </div>
                     </div>
-                    <button class="add-brand-btn">+ Add More Brand</button>
+                    <a href="brand-edit.php"><button class="add-brand-btn">+ Add More Brand</button></a>
                 </div>
             </div>
 
             <div class="header-actions" data-target="subscription.php">
-                <a style="color:#e91e63;" class="" href=""><i style="font-size:20px;" class="fa fa-user-circle"
-                        aria-hidden="true"></i></a>
+                <a style="color:#e91e63;" class="" href="daily-post.php"><i style="font-size:25px;"
+                        class="fa fa-user-circle" aria-hidden="true"></i></a>
                 <!-- First SVG Icon -->
-                <a href="subscription.php"> <svg class="header-icon" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" stroke="#E91E63">
+                <a href="subscription.php"> <svg class="header-icon" width="25px" height="25px" viewBox="0 0 24 24"
+                        fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#E91E63">
                         <g id="SVGRepo_bgCarrier" stroke-width="0">
                             <rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="#ecf2f4"
                                 stroke-width="0" />
@@ -159,7 +159,7 @@
             <div class="header flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-bold">Upcoming Festivals</h2>
                 <div class="flex-grow border-t border-gray-300 mx-4"></div>
-                <a href="#" class="text-gray-500 hover:underline flex items-center">
+                <a href="latestFest.php" class="text-gray-500 hover:underline flex items-center">
                     See all
                     <i class="fa fa-chevron-right ml-2" aria-hidden="true"></i>
                 </a>
@@ -471,14 +471,14 @@
         include 'nav.php';
         ?>
 
-<script>
+        <script>
             function togglePopup() {
                 const popup = document.getElementById('brand-popup');
                 popup.classList.toggle('active'); // Toggles the active class
             }
         </script>
 
-      
+
 </body>
 
 </html>
