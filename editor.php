@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets\editor\editor.css">
     <title>Image Editor</title>
 </head>
+
 <body>
     <div class="app">
         <!-- Header -->
@@ -161,31 +162,31 @@
             <div class="modal-content">
                 <div class="checkbox-grid">
                     <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="text1Checkbox">
                         <span>Name</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="text2Checkbox">
                         <span>Designation</span>
                     </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                    <label class="checkbox-item" id="text3Checkbox">
+                        <input type="checkbox" >
                         <span>Phone</span>
                     </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                    <label class="checkbox-item" id="text4Checkbox">
+                        <input type="checkbox" >
                         <span>Social</span>
                     </label>
-                    <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                    <label class="checkbox-item" id="text5Checkbox">
+                        <input type="checkbox" >
                         <span>Website</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" >
                         <span>Email</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" >
                         <span>Logo</span>
                     </label>
                 </div>

@@ -94,6 +94,22 @@
             }
         }
 
+        .logout-button {
+            background: #FF1B51;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 100px;
+            font-size: 16px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+
         .slider {
             width: 100%;
             max-width: 600px;
@@ -120,8 +136,9 @@
         <h1>Vasant Panchmi</h1>
     </header>
     <div class="slider sslider">
-        <div><img src="assets/img/1.png" alt=""></div>
-        <div><img src="assets/img/3.png" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
+        <div><img src="" alt=""></div>
     </div>
     <div class="options-row">
         <div class="tabs">
@@ -154,22 +171,126 @@
         <img src="assets/img/1.png" alt="">
         <img src="assets/img/1.png" alt="">
     </div>
+    <button class="logout-button " id="edit-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+        Edit
+    </button>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.slider').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: true,
-            autoplay: true,
-            autoplaySpeed: 2000
+        $(document).ready(function () {
+            $('.slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
         });
-    });
-</script>
+    </script>
+    <script>
+        window.onload = function () {
+            // Get the image URL from the query string
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageUrl = urlParams.get('image_url'); // "image_url" is the key used in the query parameter
 
+            // If image_url exists, update the slider images
+            if (imageUrl) {
+                const sliderImages = document.querySelectorAll('.slider.sslider img');
+                sliderImages.forEach((img) => {
+                    img.src = imageUrl; // Update the src of each image in the slider
+                });
+
+                console.log("Slider images updated with URL: " + imageUrl);
+            } else {
+                console.warn("No image URL found in query parameters.");
+            }
+        };
+
+        document.getElementById("edit-btn").addEventListener("click", () => {
+            // Get the image URL from the current page's query string
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageUrl = urlParams.get('image_url'); // Extract the image URL from the query parameter
+
+            if (imageUrl) {
+                console.log("Redirecting with image URL:", imageUrl);
+                // Redirect to editor.php with the same image URL
+                window.location.href = `editor.php?image_url=${imageUrl}`;
+            } else {
+                alert("No image URL found in the current page URL.");
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select the second and third image containers
+            const sliderDivs = document.querySelectorAll('.slider.sslider div');
+            if (sliderDivs.length > 2) {
+                const secondImage = sliderDivs[1];
+                const thirdImage = sliderDivs[2];
+
+                // Add gradient styles for the second image (white gradient frame)
+                secondImage.style.position = 'relative';
+                secondImage.style.setProperty('--gradient-color', 'rgba(255, 255, 255, 1)');
+                secondImage.style.setProperty('--gradient-color-transparent', 'rgba(255, 255, 255, 0)');
+                secondImage.innerHTML += `
+            <div class="gradient-frame gradient-top"></div>
+            <div class="gradient-frame gradient-bottom"></div>
+        `;
+
+                // Add gradient styles for the third image (dark gradient frame)
+                thirdImage.style.position = 'relative';
+                thirdImage.style.setProperty('--gradient-color', 'rgba(0, 0, 0, 1)');
+                thirdImage.style.setProperty('--gradient-color-transparent', 'rgba(0, 0, 0, 0)');
+                thirdImage.innerHTML += `
+            <div class="gradient-frame gradient-top"></div>
+            <div class="gradient-frame gradient-bottom"></div>
+        `;
+            }
+
+            // Common styles for frame gradients
+            const style = document.createElement('style');
+            style.textContent = `
+        .gradient-frame {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 10px; /* Adjust thickness of the frame border */
+            z-index: 1;
+        }
+
+        /* Top gradient: top-to-bottom */
+        .gradient-frame.gradient-top {
+            top: 0;
+            background: linear-gradient(to bottom, var(--gradient-color), var(--gradient-color-transparent));
+        }
+
+        /* Bottom gradient: bottom-to-top */
+        .gradient-frame.gradient-bottom {
+            bottom: 0;
+            background: linear-gradient(to top, var(--gradient-color), var(--gradient-color-transparent));
+        }
+        
+        /* Ensures the image is not obstructed */
+        .slider.sslider div img {
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+    `;
+            document.head.appendChild(style);
+        });
+
+
+
+    </script>
 </body>
 
 </html>

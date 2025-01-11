@@ -166,7 +166,6 @@
         </header>
         <hr>
         <div class="profile-card">
-        <div class="profile-card">
             <div class="avatar"></div>
             <div class="profile-info">
                 <div class="profile-number">9065001331</div>

@@ -97,41 +97,7 @@ opacitySlider?.addEventListener("input", (e) => {
     // Apply opacity to canvas or selected element
 });
 
-// Frames
-document.addEventListener("DOMContentLoaded", () => {
-    const frameOptions = document.querySelectorAll(".frame-option");
-
-    // Frame option handling
-    frameOptions.forEach((option) => {
-        option.addEventListener("click", () => {
-            // Remove 'active' class from all options
-            frameOptions.forEach((opt) => opt.classList.remove("active"));
-
-            // Add 'active' class to the clicked option
-            option.classList.add("active");
-
-            // Apply frame styles based on the selected option
-            applyFrameStyle(option.textContent.trim());
-        });
-    });
-
-    function applyFrameStyle(option) {
-        // Reset canvas style
-        canvas.style.border = "";
-        canvas.style.backgroundColor = "";
-
-        if (option === "For Light Design") {
-            // Set light frame design (White at top and bottom)
-            canvas.style.background = "linear-gradient(to bottom, white 0%, white 10%, transparent 10%, transparent 90%, white 90%, white 100%)";
-        } else if (option === "For Dark Design") {
-            // Set dark design (Black background)
-            canvas.style.backgroundColor = "black";
-        } else {
-            // No frame (Reset to default)
-            canvas.style.backgroundColor = "";
-        }
-    }
-});
+ 
 
 document.addEventListener("DOMContentLoaded", () => {
     const galleryButton = document.getElementById("gallery-btn");
@@ -348,60 +314,46 @@ document.addEventListener("DOMContentLoaded", () => {
     drawCanvas();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const imageURL = sessionStorage.getItem('selectedImageURL');
-    const canvasShape = sessionStorage.getItem('canvasShape');
+document.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById("editor-canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
 
-    if (imageURL && canvasShape) {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
+    // Get the image URL from the query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const imageUrl = urlParams.get('image_url'); // Retrieve the "image_url" query parameter
 
-        img.onload = function () {
-            setCanvasDimensions();
-            drawImage();
-        };
-
-        img.src = imageURL;
-
-        function setCanvasDimensions() {
-            if (canvasShape === 'square') {
-                canvas.width = 600;
-                canvas.height = 600;
-            } else if (canvasShape === 'rectangle') {
-                canvas.width = 600;
-                canvas.height = 800;
-            }
-        }
-
-        function drawImage() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (imageUrl) {
+        img.onload = () => {
+            // Draw the image on the canvas
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        }
 
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            setCanvasDimensions();
-            drawImage();
-        });
+            // Store the image URL in sessionStorage for frame application
+            sessionStorage.setItem('selectedImageURL', imageUrl);
+        };
+        img.src = imageUrl; // Set the image source
+    } else {
+        console.warn("No image URL found in query parameters.");
     }
+    
 });
 
-
+// Function to apply the selected frame
 function applyFrame(frameType) {
+    const canvas = document.getElementById("editor-canvas");
+    const ctx = canvas.getContext("2d");
     const imageURL = sessionStorage.getItem('selectedImageURL');
     const img = new Image();
 
     img.onload = function () {
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
+
+        // Clear the canvas and redraw the image
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-        // Draw the image as the background with lower z-index
-        ctx.globalCompositeOperation = "destination-over";
         ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
-        ctx.globalCompositeOperation = "source-over";
 
+        // Apply frame based on frameType
         if (frameType === 'light') {
             const topGradient = ctx.createLinearGradient(0, 0, 0, canvasHeight / 4);
             topGradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
@@ -431,5 +383,7 @@ function applyFrame(frameType) {
 
     if (imageURL) {
         img.src = imageURL;
+    } else {
+        console.warn("No image URL found in sessionStorage.");
     }
 }
