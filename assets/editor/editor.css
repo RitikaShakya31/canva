@@ -278,11 +278,16 @@
  /* Sticker Modal */
  .sticker-grid {
      display: grid;
-     grid-template-columns: repeat(4, 1fr);
+     grid-template-columns: repeat(6, 1fr);
      gap: 8px;
      padding: 16px;
  }
-
+ .movable-sticker {
+    cursor: move;
+    z-index: 10;
+    max-width: 100px;
+    max-height: 100px;
+  }q
 
  .sticker-item {
      aspect-ratio: 1;
@@ -403,6 +408,12 @@
  }
 
  .background-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 8px;
+     padding: 16px;
+ }
+ .color-grid {
      display: grid;
      grid-template-columns: repeat(4, 1fr);
      gap: 8px;

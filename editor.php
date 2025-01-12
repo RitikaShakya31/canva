@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets\editor\editor.css">
-    
+
 
     <title>Image Editor</title>
 </head>
@@ -126,11 +126,11 @@
                     <a href="#" class="see-all">See all</a>
                 </div>
                 <div class="sticker-grid">
-                    <img src="assets/image/facebook.png" alt="">
-                    <img src="assets/image/instagram.png" alt="">
-                    <img src="assets/image/youtube.png" alt="">
-                    <img src="assets/image/mail.png" alt="">
-                    <img src="assets/image/location.png" alt="">
+                    <img src="assets/image/facebook.png" alt="" style="width:150px;">
+                    <img src="assets/image/instagram.png" alt="" style="width:150px;">
+                    <img src="assets/image/youtube.png" alt="" style="width:150px;">
+                    <img src="assets/image/mail.png" alt="" style="width:150px;">
+                    <img src="assets/image/location.png" alt="" style="width:150px;">
                 </div>
             </div>
             <div class="sticker-category">
@@ -138,12 +138,12 @@
                     <span class="category-title">ANNIVERSARY</span>
                     <a href="#" class="see-all">See all</a>
                 </div>
-                <div class="sticker-grid">
+                <!-- <div class="sticker-grid">
                     <div class="sticker-item"></div>
                     <div class="sticker-item"></div>
                     <div class="sticker-item"></div>
                     <div class="sticker-item"></div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -265,15 +265,28 @@
                 <span class="title">Background</span>
             </div>
             <div class="background-tabs">
-                <button class="tab-btn active">Gallery</button>
-                <button class="tab-btn">Colors</button>
+                <button class="tab-btn active" data-target="gallery-content">Gallery</button>
+                <button class="tab-btn" data-target="color-content">Colors</button>
             </div>
-            <div class="background-grid">
-                <img src="assets/img/tem1.jpg" alt="" style="width: 250px;">
-                <img src="assets/img/tem2.jpg" alt="" style="width: 250px;">
-                <img src="assets/img/tem3.jpg" alt="" style="width: 250px;">
-                <!-- <div class="background-item"></div> -->
+
+            <!-- Tab Contents -->
+            <div class="tab-content gallery-content active" style="display: block;">
+                <div class="background-grid">
+                    <img src="assets/img/tem1.jpg" alt="" style="width: 250px;">
+                    <img src="assets/img/tem2.jpg" alt="" style="width: 250px;">
+                    <img src="assets/img/tem3.jpg" alt="" style="width: 250px;">
+                </div>
             </div>
+
+            <div class="tab-content color-content" style="display: none;">
+                <div class="color-grid">
+                    <div style="background-color: #ff6666; width: 250px; height: 250px;"></div>
+                    <div style="background-color: #66b3ff; width: 250px; height: 250px;"></div>
+                    <div style="background-color: #99ff99; width: 250px; height: 250px;"></div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

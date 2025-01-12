@@ -19,8 +19,7 @@ resizeCanvas();
 // Load sample image
 async function loadImage() {
   const img = new Image();
-  img.crossOrigin = "anonymous";
-  img.src = "https://source.unsplash.com/random/800x800";
+  img.crossOrigin = "anonymous"; 
 
   img.onload = () => {
     const scale = Math.min(
@@ -80,15 +79,22 @@ document.querySelectorAll(".modal, .add-image-modal").forEach((modal) => {
   });
 });
 
-// Tab handling
+//background Tab handling
 const tabButtons = document.querySelectorAll(".tab-btn");
-tabButtons.forEach((button) => {
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(button => {
   button.addEventListener("click", () => {
-    const parent = button.closest(".background-tabs");
-    parent.querySelectorAll(".tab-btn").forEach((btn) => {
-      btn.classList.remove("active");
-    });
+    const targetContentClass = button.dataset.target;
+
+    // Update active tab button
+    tabButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
+
+    // Show relevant tab content and hide others
+    tabContents.forEach(content => {
+      content.style.display = content.classList.contains(targetContentClass) ? "block" : "none";
+    });
   });
 });
 
@@ -432,56 +438,119 @@ function makeTextMovable(text, initialX, initialY) {
   });
 }
 
-//background
-// Select all images in the background grid
-const backgroundImages = document.querySelectorAll(".background-grid img");
+// Select all images in gallery and color tabs
+const galleryImages = document.querySelectorAll(".gallery-content img");
+const colorBlocks = document.querySelectorAll(".color-grid div");
+const editorCanvas = document.getElementById("editor-canvas");
+const canvasContext = editorCanvas.getContext("2d");
 
-// Function to draw selected background image on canvas
-function drawImageOnCanvas(imageURL) {
-  const canvasElement = document.getElementById("editor-canvas");
-  const canvasContext = canvasElement.getContext("2d");
+// Function to draw selected background image or color on canvas
+function drawOnCanvas(imageURL = null, color = null) {
+  // Resize canvas
+  editorCanvas.width = editorCanvas.clientWidth;
+  editorCanvas.height = editorCanvas.clientHeight;
 
-  const img = new Image();
-  img.onload = function () {
-    // Resize canvas to fit image or maintain current aspect ratio
-    canvasElement.width = canvasElement.clientWidth;
-    canvasElement.height = canvasElement.clientHeight;
+  // Clear the canvas before drawing
+  canvasContext.fillStyle = color || "white";
+  canvasContext.fillRect(0, 0, editorCanvas.width, editorCanvas.height);
 
-    // Clear the canvas with a white background to prevent blackish glitch
-    canvasContext.fillStyle = "white"; // Set background to white
-    canvasContext.fillRect(0, 0, canvasElement.width, canvasElement.height);
-
-    // Scale image to fit canvas dimensions
-    const scaleWidth = canvasElement.width / img.width;
-    const scaleHeight = canvasElement.height / img.height;
-
-    // Choose the larger scale to fill the entire canvas without black edges
-    const scale = Math.max(scaleWidth, scaleHeight);
-
-    // Calculate coordinates to center the image
-    const x = (canvasElement.width - img.width * scale) / 2;
-    const y = (canvasElement.height - img.height * scale) / 2;
-
-    // Draw the image centered and scaled to canvas size
-    canvasContext.drawImage(img, x, y, img.width * scale, img.height * scale);
-  };
-
-  img.src = imageURL;
+  if (imageURL) {
+    const img = new Image();
+    img.onload = function () {
+      // Scale and center the image
+      const scaleWidth = editorCanvas.width / img.width;
+      const scaleHeight = editorCanvas.height / img.height;
+      const scale = Math.max(scaleWidth, scaleHeight);
+      const x = (editorCanvas.width - img.width * scale) / 2;
+      const y = (editorCanvas.height - img.height * scale) / 2;
+      canvasContext.drawImage(img, x, y, img.width * scale, img.height * scale);
+    };
+    img.src = imageURL;
+  }
 }
 
-// Add click event listeners to modal background images
-backgroundImages.forEach((img) => {
+// Handle image click from gallery
+galleryImages.forEach(img => {
   img.addEventListener("click", function () {
-    drawImageOnCanvas(img.src);
+    drawOnCanvas(img.src);
 
-    // Optionally hide the modal after selection
-    document.getElementById("background-modal").classList.remove("active");
-
-    // Store the selected background for future use
+    // Store selected background for later use if needed
     sessionStorage.setItem("selectedBackgroundURL", img.src);
+  });
+});
+
+// Handle color block click
+colorBlocks.forEach(block => {
+  block.addEventListener("click", function () {
+    const backgroundColor = block.style.backgroundColor;
+    drawOnCanvas(null, backgroundColor);
+
+    // Optionally store the color if needed
+    sessionStorage.setItem("selectedBackgroundColor", backgroundColor);
   });
 });
 
 
 
+///sticker
+// Select all sticker images in the sticker grid
+// Select all sticker images in the sticker grid
+const stickers = document.querySelectorAll(".sticker-grid img");
+const editorContainer = document.getElementById("editor-canvas");
 
+// Variables for dragging
+let isDragging = false;
+let currentSticker = null;
+let offsetX, offsetY;
+
+// Function to add stickers on top of the existing background image
+stickers.forEach(sticker => {
+  sticker.addEventListener("click", function () {
+    // Create a new img element for the sticker
+    const stickerImg = document.createElement("img");
+    stickerImg.src = sticker.src;
+    stickerImg.classList.add("movable-sticker");
+
+    // Default position for the sticker on top of the existing image
+    stickerImg.style.left = "50px";  // Default horizontal position
+    stickerImg.style.top = "50px";   // Default vertical position
+
+    // Append the sticker to the editor container (on top of the background image)
+    editorContainer.appendChild(stickerImg);
+
+    // Allow sticker dragging
+    stickerImg.addEventListener("mousedown", startDragging);
+
+    // Optionally hide the sticker modal after selection
+    document.getElementById("sticker-modal").classList.remove("active");
+  });
+});
+
+// Start dragging
+function startDragging(e) {
+  isDragging = true;
+  currentSticker = e.target;
+
+  // Calculate offset for smooth dragging
+  offsetX = e.offsetX;
+  offsetY = e.offsetY;
+
+  document.addEventListener("mousemove", dragSticker);
+  document.addEventListener("mouseup", stopDragging);
+}
+
+// Dragging function
+function dragSticker(e) {
+  if (isDragging && currentSticker) {
+    currentSticker.style.left = `${e.pageX - editorContainer.offsetLeft - offsetX}px`;
+    currentSticker.style.top = `${e.pageY - editorContainer.offsetTop - offsetY}px`;
+  }
+}
+
+// Stop dragging
+function stopDragging() {
+  isDragging = false;
+  currentSticker = null;
+  document.removeEventListener("mousemove", dragSticker);
+  document.removeEventListener("mouseup", stopDragging);
+}
