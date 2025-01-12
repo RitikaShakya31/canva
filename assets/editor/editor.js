@@ -377,7 +377,7 @@ document
     document.querySelector(".text-action-btn.primary").addEventListener("click", () => {
         const textInput = document.querySelector(".text-input").value;
         if (textInput) {
-          ctx.font = "20px Arial";
+          ctx.font = "50px Arial";
           ctx.fillStyle = "black";
           const textWidth = ctx.measureText(textInput).width;
           const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
