@@ -104,8 +104,11 @@
                 <button class="add-image-btn" id="camera-btn">Camera</button>
                 <button class="add-image-btn" id="gallery-btn">Gallery</button>
                 <input type="file" id="image-upload" accept="image/*" style="display: none;" />
+                <input type="file" id="camera-upload" accept="image/*" capture="camera" style="display: none;" />
             </div>
+            <img id="selected-image" src="" alt="Selected Image" style="display: none;" />
         </div>
+
 
 
         <!-- Sticker Modal -->
@@ -129,10 +132,6 @@
                     <img src="assets/image/youtube.png" alt="">
                     <img src="assets/image/mail.png" alt="">
                     <img src="assets/image/location.png" alt="">
-                    <!-- <div class="sticker-item"></div>
-                    <div class="sticker-item"></div>
-                    <div class="sticker-item"></div>
-                    <div class="sticker-item"></div> -->
                 </div>
             </div>
             <div class="sticker-category">
@@ -169,26 +168,27 @@
                         <input type="checkbox" id="text2Checkbox">
                         <span>Designation</span>
                     </label>
-                    <label class="checkbox-item" id="text3Checkbox">
-                        <input type="checkbox" >
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="text3Checkbox">
                         <span>Phone</span>
                     </label>
-                    <label class="checkbox-item" id="text4Checkbox">
-                        <input type="checkbox" >
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="text4Checkbox">
                         <span>Social</span>
                     </label>
-                    <label class="checkbox-item" id="text5Checkbox">
-                        <input type="checkbox" >
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="text5Checkbox">
                         <span>Website</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" >
+                        <input type="checkbox" id="text6Checkbox">
                         <span>Email</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" >
+                        <input type="checkbox" id="logoCheckbox">
                         <span>Logo</span>
                     </label>
+
                 </div>
             </div>
         </div>

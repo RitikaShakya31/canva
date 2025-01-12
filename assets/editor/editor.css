@@ -365,7 +365,7 @@
 
  .frame-option {
      flex: 1;
-     aspect-ratio: 1;
+     aspect-ratio: 2;
      border: 2px solid #eee;
      border-radius: 8px;
      display: flex;
@@ -436,6 +436,7 @@
     border-radius: 50%;
     border: 1px solid #ccc;
 }
+
 
 
 
