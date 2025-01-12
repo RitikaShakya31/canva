@@ -369,24 +369,25 @@ document
     }
   });
 
-
 ////text
 
 // Add text to canvas when "ADD" button is clicked
-document.querySelector(".text-action-btn.primary").addEventListener("click", () => {
-  const textInput = document.querySelector(".text-input").value;
-  if (textInput) {
-    ctx.font = "50px Arial";
-    ctx.fillStyle = "black";
-    const textWidth = ctx.measureText(textInput).width;
-    const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
-    const yPosition = canvas.height / 2; // Center the text vertically
-    ctx.fillText(textInput, xPosition, yPosition);
+document
+  .querySelector(".text-action-btn.primary")
+  .addEventListener("click", () => {
+    const textInput = document.querySelector(".text-input").value;
+    if (textInput) {
+      ctx.font = "50px Arial";
+      ctx.fillStyle = "black";
+      const textWidth = ctx.measureText(textInput).width;
+      const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
+      const yPosition = canvas.height / 2; // Center the text vertically
+      ctx.fillText(textInput, xPosition, yPosition);
 
-    // Make the text movable
-    makeTextMovable(textInput, xPosition, yPosition);
-  }
-});
+      // Make the text movable
+      makeTextMovable(textInput, xPosition, yPosition);
+    }
+  });
 
 function makeTextMovable(text, initialX, initialY) {
   let isDragging = false;
@@ -430,3 +431,57 @@ function makeTextMovable(text, initialX, initialY) {
     isDragging = false;
   });
 }
+
+//background
+// Select all images in the background grid
+const backgroundImages = document.querySelectorAll(".background-grid img");
+
+// Function to draw selected background image on canvas
+function drawImageOnCanvas(imageURL) {
+  const canvasElement = document.getElementById("editor-canvas");
+  const canvasContext = canvasElement.getContext("2d");
+
+  const img = new Image();
+  img.onload = function () {
+    // Resize canvas to fit image or maintain current aspect ratio
+    canvasElement.width = canvasElement.clientWidth;
+    canvasElement.height = canvasElement.clientHeight;
+
+    // Clear the canvas with a white background to prevent blackish glitch
+    canvasContext.fillStyle = "white"; // Set background to white
+    canvasContext.fillRect(0, 0, canvasElement.width, canvasElement.height);
+
+    // Scale image to fit canvas dimensions
+    const scaleWidth = canvasElement.width / img.width;
+    const scaleHeight = canvasElement.height / img.height;
+
+    // Choose the larger scale to fill the entire canvas without black edges
+    const scale = Math.max(scaleWidth, scaleHeight);
+
+    // Calculate coordinates to center the image
+    const x = (canvasElement.width - img.width * scale) / 2;
+    const y = (canvasElement.height - img.height * scale) / 2;
+
+    // Draw the image centered and scaled to canvas size
+    canvasContext.drawImage(img, x, y, img.width * scale, img.height * scale);
+  };
+
+  img.src = imageURL;
+}
+
+// Add click event listeners to modal background images
+backgroundImages.forEach((img) => {
+  img.addEventListener("click", function () {
+    drawImageOnCanvas(img.src);
+
+    // Optionally hide the modal after selection
+    document.getElementById("background-modal").classList.remove("active");
+
+    // Store the selected background for future use
+    sessionStorage.setItem("selectedBackgroundURL", img.src);
+  });
+});
+
+
+
+
