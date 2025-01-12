@@ -1,3 +1,5 @@
+
+
 // Canvas Setup
 const canvas = document.getElementById("editor-canvas");
 const ctx = canvas.getContext("2d");
@@ -237,15 +239,15 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.width = 800;
   canvas.height = 800;
 
-  // Default text values
+  // Default text values with custom positions and Font Awesome icons
   const profileData = {
-    text1: "Name: John Doe",
-    text2: "Designation: Developer",
-    text3: "Phone: +1234567890",
-    text4: "Social: @example",
-    text5: "Website: www.example.com",
-    text6: "Email: john.doe@example.com",
-    logo: "Your Logo",
+    text1: { value: "Name: John Doe", x: 650, y: 50 },
+    text2: { value: "\uf3c5 Location: This is testing", x: 20, y: 775 }, // Location icon
+    text3: { value: "\uf095 Phone: +1234567890", x: 20, y: 750 }, // Phone icon
+    text4: { value: "\uf099 Social: @example", x: 600, y: 75 }, // Social icon (Twitter)
+    text5: { value: "\uf0ac Website: www.example.com", x: 510, y: 750 }, // Globe icon
+    text6: { value: "\uf0e0 Email: john.doe@example.com", x: 230, y: 750 }, // Email icon
+    logo: { value: "Your Logo", x: 100, y: 50 },
   };
 
   // Track which elements are displayed on the canvas
@@ -287,6 +289,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function drawCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
 
+    // Set Font Awesome font
+    const fontAwesome = "20px FontAwesome";
+
     // Draw the current image first
     const imageURL = sessionStorage.getItem("selectedImageURL");
     if (imageURL) {
@@ -295,30 +300,24 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
         // Draw the selected elements on top of the image
-        let yPosition = canvas.height / 2 - 100; // Initial vertical position for drawing text
         for (const key in selectedElements) {
           if (selectedElements[key]) {
-            ctx.font = "20px Arial";
+            const element = profileData[key];
+            ctx.font = fontAwesome;
             ctx.fillStyle = "black";
-            const textWidth = ctx.measureText(profileData[key]).width;
-            const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
-            ctx.fillText(profileData[key], xPosition, yPosition);
-            yPosition += 30; // Move down for the next text
+            ctx.fillText(element.value, element.x, element.y);
           }
         }
       };
       img.src = imageURL;
     } else {
       // Draw the selected elements if no image is available
-      let yPosition = canvas.height / 2 - 100; // Initial vertical position for drawing text
       for (const key in selectedElements) {
         if (selectedElements[key]) {
-          ctx.font = "20px Arial";
+          const element = profileData[key];
+          ctx.font = fontAwesome;
           ctx.fillStyle = "black";
-          const textWidth = ctx.measureText(profileData[key]).width;
-          const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
-          ctx.fillText(profileData[key], xPosition, yPosition);
-          yPosition += 30; // Move down for the next text
+          ctx.fillText(element.value, element.x, element.y);
         }
       }
     }
@@ -326,9 +325,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial render with no selected text
   drawCanvas();
-
-
 });
+
+
 
 ////canvas gallery image
 
@@ -371,63 +370,63 @@ document
   });
 
 
-  ////text
+////text
 
-    // Add text to canvas when "ADD" button is clicked
-    document.querySelector(".text-action-btn.primary").addEventListener("click", () => {
-        const textInput = document.querySelector(".text-input").value;
-        if (textInput) {
-          ctx.font = "50px Arial";
-          ctx.fillStyle = "black";
-          const textWidth = ctx.measureText(textInput).width;
-          const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
-          const yPosition = canvas.height / 2; // Center the text vertically
-          ctx.fillText(textInput, xPosition, yPosition);
-  
-          // Make the text movable
-          makeTextMovable(textInput, xPosition, yPosition);
-        }
-      });
-  
-    function makeTextMovable(text, initialX, initialY) {
-      let isDragging = false;
-      let offsetX, offsetY;
-  
-      canvas.addEventListener("mousedown", (e) => {
-        const mouseX = e.offsetX;
-        const mouseY = e.offsetY;
-        const textWidth = ctx.measureText(text).width;
-        const textHeight = 20; // Approximate text height
-  
-        if (
-          mouseX >= initialX &&
-          mouseX <= initialX + textWidth &&
-          mouseY >= initialY - textHeight &&
-          mouseY <= initialY
-        ) {
-          isDragging = true;
-          offsetX = mouseX - initialX;
-          offsetY = mouseY - initialY;
-        }
-      });
-  
-      canvas.addEventListener("mousemove", (e) => {
-        if (isDragging) {
-          const mouseX = e.offsetX;
-          const mouseY = e.offsetY;
-          initialX = mouseX - offsetX;
-          initialY = mouseY - offsetY;
-  
-          drawCanvas(); // Redraw the canvas
-          ctx.fillText(text, initialX, initialY); // Draw the text at the new position
-        }
-      });
-  
-      canvas.addEventListener("mouseup", () => {
-        isDragging = false;
-      });
-  
-      canvas.addEventListener("mouseout", () => {
-        isDragging = false;
-      });
+// Add text to canvas when "ADD" button is clicked
+document.querySelector(".text-action-btn.primary").addEventListener("click", () => {
+  const textInput = document.querySelector(".text-input").value;
+  if (textInput) {
+    ctx.font = "50px Arial";
+    ctx.fillStyle = "black";
+    const textWidth = ctx.measureText(textInput).width;
+    const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
+    const yPosition = canvas.height / 2; // Center the text vertically
+    ctx.fillText(textInput, xPosition, yPosition);
+
+    // Make the text movable
+    makeTextMovable(textInput, xPosition, yPosition);
+  }
+});
+
+function makeTextMovable(text, initialX, initialY) {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  canvas.addEventListener("mousedown", (e) => {
+    const mouseX = e.offsetX;
+    const mouseY = e.offsetY;
+    const textWidth = ctx.measureText(text).width;
+    const textHeight = 20; // Approximate text height
+
+    if (
+      mouseX >= initialX &&
+      mouseX <= initialX + textWidth &&
+      mouseY >= initialY - textHeight &&
+      mouseY <= initialY
+    ) {
+      isDragging = true;
+      offsetX = mouseX - initialX;
+      offsetY = mouseY - initialY;
     }
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      const mouseX = e.offsetX;
+      const mouseY = e.offsetY;
+      initialX = mouseX - offsetX;
+      initialY = mouseY - offsetY;
+
+      drawCanvas(); // Redraw the canvas
+      ctx.fillText(text, initialX, initialY); // Draw the text at the new position
+    }
+  });
+
+  canvas.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  canvas.addEventListener("mouseout", () => {
+    isDragging = false;
+  });
+}
