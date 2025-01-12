@@ -108,9 +108,6 @@
             </div>
             <img id="selected-image" src="" alt="Selected Image" style="display: none;" />
         </div>
-
-
-
         <!-- Sticker Modal -->
         <div class="modal" id="sticker-modal">
             <div class="modal-header">
@@ -270,14 +267,10 @@
                 <button class="tab-btn">Colors</button>
             </div>
             <div class="background-grid">
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
-                <div class="background-item"></div>
+                <img src="assets/img/tem1.jpg" alt="" style="width: 250px;">
+                <img src="assets/img/tem2.jpg" alt="" style="width: 250px;">
+                <img src="assets/img/tem3.jpg" alt="" style="width: 250px;">
+                <!-- <div class="background-item"></div> -->
             </div>
         </div>
     </div>
