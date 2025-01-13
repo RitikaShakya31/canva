@@ -238,12 +238,10 @@
                         aria-hidden="true"></i></a>
             </div>
             <div class="card-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
-                <a href="select-post.php?image_url=assets/img/1.png"
+                <a href="select-post.php?image_url=assets/img/orange.webp"
                     class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-                    <img src="assets/img/1.png" alt="Vasant Panchami Image" class="w-full h-auto">
+                    <img src="assets/img/orange.webp" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>
-
-
                 <a href="" style="width:90px;" class="card bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
                     <img src="assets/img/2.png" alt="Vasant Panchami Image" class="w-full h-auto">
                 </a>

@@ -94,8 +94,9 @@
             }
 
             .logout-button {
-                position: fixed;
-                top: 81%;
+                position: fixed !important;
+                top: 84% !important;
+                left: 5% !important;
                 width: 93% !important;
 
             }
@@ -105,7 +106,7 @@
             background: #FF1B51;
             color: white;
             border: none;
-            width: 100%;
+            width: 15%;
             padding: 16px;
             border-radius: 100px;
             font-size: 16px;
@@ -114,6 +115,10 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            position: fixed;
+            top: 84%;
+            text-align: center;
+            left: 43%;
         }
 
 
@@ -127,6 +132,14 @@
             width: 100%;
             border-radius: 8px;
             height: 450px;
+        }
+
+        .size-btn {
+            border-radius: 19px;
+            padding: 7px 10px;
+            border: none;
+            background: #80808030;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -152,8 +165,8 @@
             <p class="tab active" id="free-tab">Free</p>
             <p class="tab" id="premium-tab">Premium</p>
         </div>
-        <select name="" id="">
-            <option value="">All size</option>
+        <select class="size-btn">
+            <option value="">All sizes</option>
             <option value="">Square</option>
             <option value="">Story</option>
             <option value="">Landscape</option>
@@ -197,7 +210,7 @@
                 slidesToScroll: 1,
                 dots: true,
                 arrows: true,
-                autoplay: true,
+                autoplay: false,
                 autoplaySpeed: 5000
             });
         });
@@ -269,8 +282,8 @@
             position: absolute;
             left: 0;
             right: 0;
-            height: 10px; /* Adjust thickness of the frame border */
-            z-index: 1;
+            height: 23px; /* Adjust thickness of the frame border */
+            z-index: 9;
         }
 
         /* Top gradient: top-to-bottom */
