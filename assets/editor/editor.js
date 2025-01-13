@@ -375,68 +375,9 @@ document
     }
   });
 
-////text
 
-// Add text to canvas when "ADD" button is clicked
-document
-  .querySelector(".text-action-btn.primary")
-  .addEventListener("click", () => {
-    const textInput = document.querySelector(".text-input").value;
-    if (textInput) {
-      ctx.font = "50px Arial";
-      ctx.fillStyle = "black";
-      const textWidth = ctx.measureText(textInput).width;
-      const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
-      const yPosition = canvas.height / 2; // Center the text vertically
-      ctx.fillText(textInput, xPosition, yPosition);
+  
 
-      // Make the text movable
-      makeTextMovable(textInput, xPosition, yPosition);
-    }
-  });
-
-function makeTextMovable(text, initialX, initialY) {
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  canvas.addEventListener("mousedown", (e) => {
-    const mouseX = e.offsetX;
-    const mouseY = e.offsetY;
-    const textWidth = ctx.measureText(text).width;
-    const textHeight = 20; // Approximate text height
-
-    if (
-      mouseX >= initialX &&
-      mouseX <= initialX + textWidth &&
-      mouseY >= initialY - textHeight &&
-      mouseY <= initialY
-    ) {
-      isDragging = true;
-      offsetX = mouseX - initialX;
-      offsetY = mouseY - initialY;
-    }
-  });
-
-  canvas.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-      const mouseX = e.offsetX;
-      const mouseY = e.offsetY;
-      initialX = mouseX - offsetX;
-      initialY = mouseY - offsetY;
-
-      drawCanvas(); // Redraw the canvas
-      ctx.fillText(text, initialX, initialY); // Draw the text at the new position
-    }
-  });
-
-  canvas.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
-
-  canvas.addEventListener("mouseout", () => {
-    isDragging = false;
-  });
-}
 
 // Select all images in gallery and color tabs
 const galleryImages = document.querySelectorAll(".gallery-content img");
@@ -553,4 +494,171 @@ function stopDragging() {
   currentSticker = null;
   document.removeEventListener("mousemove", dragSticker);
   document.removeEventListener("mouseup", stopDragging);
+}
+
+
+
+
+////text
+
+// // Add text to canvas when "ADD" button is clicked
+// document
+//   .querySelector(".text-action-btn.primary")
+//   .addEventListener("click", () => {
+//     const textInput = document.querySelector(".text-input").value;
+//     if (textInput) {
+//       ctx.font = "50px Arial";
+//       ctx.fillStyle = "black";
+//       const textWidth = ctx.measureText(textInput).width;
+//       const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
+//       const yPosition = canvas.height / 2; // Center the text vertically
+//       ctx.fillText(textInput, xPosition, yPosition);
+
+//       // Make the text movable
+//       makeTextMovable(textInput, xPosition, yPosition);
+//     }
+//   });
+// Assume isDragging, offsetX, offsetY are defined elsewhere already
+
+// Event listener for adding text
+// Assume isDragging, offsetX, offsetY are defined elsewhere already
+let isResizing = false; // Add this line to define isResizing
+
+// Event listener for adding text
+
+document
+  .querySelector(".text-action-btn.primary")
+  .addEventListener("click", () => {
+    const textInput = document.querySelector(".text-input").value;
+    if (textInput) {
+      ctx.font = "50px Arial";
+      ctx.fillStyle = "black";
+      const textWidth = ctx.measureText(textInput).width;
+      const xPosition = (canvas.width - textWidth) / 2; // Center the text horizontally
+      const yPosition = canvas.height / 2; // Center the text vertically
+
+      // Create the text element
+      textElement = {
+        text: textInput,
+        x: xPosition,
+        y: yPosition,
+        width: textWidth,
+        height: 50,
+      };
+
+      // Draw the text and border with delete and resize options
+      drawCanvas();
+
+      // Make the text movable
+      makeTextMovable();
+    }
+  });
+
+// Function to draw the text with border and icons
+function drawCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+  // Redraw the background image (if any)
+  const imageURL = sessionStorage.getItem("selectedImageURL");
+  if (imageURL) {
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      drawTextWithBorder();
+    };
+    img.src = imageURL;
+  } else {
+    // Draw the text and border if no image
+    drawTextWithBorder();
+  }
+}
+
+// Function to draw the text with border and icons
+function drawTextWithBorder() {
+  // Draw text border (box)
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(textElement.x - 10, textElement.y - textElement.height, textElement.width + 20, textElement.height + 20);
+
+  // Draw delete icon (X in top-left corner)
+  ctx.fillStyle = "red";
+  ctx.font = "20px Arial";
+  ctx.fillText("X", textElement.x - 10, textElement.y - textElement.height + 20);
+
+  // Draw resize handle (circle in top-right corner)
+  ctx.beginPath();
+  ctx.arc(textElement.x + textElement.width + 10, textElement.y - textElement.height + 10, 10, 0, Math.PI * 2);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+  
+  // Draw the actual text
+  ctx.fillStyle = "black";
+  ctx.font = "50px Arial";
+  ctx.fillText(textElement.text, textElement.x, textElement.y);
+}
+
+// Function to enable dragging and resizing of the text
+function makeTextMovable() {
+  canvas.addEventListener("mousedown", (e) => {
+    const mouseX = e.offsetX;
+    const mouseY = e.offsetY;
+
+    // Check if mouse is over the text (for dragging)
+    if (
+      mouseX >= textElement.x - 10 &&
+      mouseX <= textElement.x + textElement.width + 10 &&
+      mouseY >= textElement.y - textElement.height &&
+      mouseY <= textElement.y + 10
+    ) {
+      isDragging = true;
+      offsetX = mouseX - textElement.x;
+      offsetY = mouseY - textElement.y;
+    }
+
+    // Check if mouse is over delete icon (for deleting text)
+    if (
+      mouseX >= textElement.x - 10 &&
+      mouseX <= textElement.x + 10 &&
+      mouseY >= textElement.y - textElement.height + 10 &&
+      mouseY <= textElement.y - textElement.height + 30
+    ) {
+      deleteText();
+    }
+
+    // Check if mouse is over resize handle (for resizing text)
+    if (
+      mouseX >= textElement.x + textElement.width + 10 &&
+      mouseX <= textElement.x + textElement.width + 30 &&
+      mouseY >= textElement.y - textElement.height + 10 &&
+      mouseY <= textElement.y - textElement.height + 30
+    ) {
+      isResizing = true;
+    }
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      textElement.x = e.offsetX - offsetX;
+      textElement.y = e.offsetY - offsetY;
+      textElement.width = ctx.measureText(textElement.text).width; // Recalculate text width while dragging
+      drawCanvas();
+    }
+
+    if (isResizing) {
+      const mouseX = e.offsetX;
+      textElement.width = mouseX - textElement.x - 10; // Resize by moving the mouse in the X direction
+      drawCanvas();
+    }
+  });
+
+  canvas.addEventListener("mouseup", () => {
+    isDragging = false;
+    isResizing = false; // Reset the resizing flag
+  });
+}
+
+// Function to delete text
+function deleteText() {
+  textElement = null;
+  drawCanvas(); // Redraw canvas after deleting text
 }

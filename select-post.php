@@ -92,6 +92,13 @@
             .all-post img {
                 width: 32%;
             }
+
+            .logout-button {
+                position: fixed;
+                top: 81%;
+                width: 93% !important;
+
+            }
         }
 
         .logout-button {

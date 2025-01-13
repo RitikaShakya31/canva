@@ -202,6 +202,14 @@
                 </button>
                 <span class="title">Add Text</span>
             </div>
+            <!-- <div class="modal-content">
+                <h2>Add Your Text</h2>
+                <input type="text" placeholder="Add Text here" class="text-input">
+                <div class="text-actions">
+                    <button class="text-action-btn secondary">Cancel</button>
+                    <button class="text-action-btn primary">ADD</button>
+                </div>
+            </div> -->
             <div class="modal-content">
                 <h2>Add Your Text</h2>
                 <input type="text" placeholder="Add Text here" class="text-input">
@@ -210,6 +218,7 @@
                     <button class="text-action-btn primary">ADD</button>
                 </div>
             </div>
+
 
 
         </div>
